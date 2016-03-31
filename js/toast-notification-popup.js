@@ -1,6 +1,6 @@
 /*
  Toast notification popup jQuery plugin
- (c) 2016 Nupin Mathew <nupin_mathew@infosys.com>
+ (c) 2016 Nupin Mathew <nupindev@gmail.com>
  License: MIT
 */
 $(function () {
