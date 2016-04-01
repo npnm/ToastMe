@@ -57,7 +57,7 @@
         <h3>Toast popup demo</h3>
         <label>Try your custom messages:</label>
         <textarea id="customMessage">Product was successfully added to your cart!!</textarea>
-        <input type="button" value="Show Toast" onclick="showToast()" />
+        <input type="button" value="Show Toast" id="btnShow" />
     </div>
 
     <!--Toast popup html tag-->
@@ -66,8 +66,8 @@
     <script src="js/toast-notification-popup.js"></script>
     <script>
      $(function(){
-       function showToast() {
-            var customMessage = $("#customMessage").val();
+       $("#btnShow").click(function(){
+         var customMessage = $("#customMessage").val();
             if (customMessage != "" && customMessage != undefined) {
                 $("#myToast").showToast({
                     message: customMessage,
@@ -76,7 +76,7 @@
             } else {
                 $("#myToast").showToast();
             }
-        }
+       });
      });
     </script>
 </body>
