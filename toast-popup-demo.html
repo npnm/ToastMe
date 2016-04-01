@@ -65,7 +65,8 @@
     <script src="js/jquery-2.2.0.min.js"></script>
     <script src="js/toast-notification-popup.js"></script>
     <script>
-        function showToast() {
+     $(function(){
+       function showToast() {
             var customMessage = $("#customMessage").val();
             if (customMessage != "" && customMessage != undefined) {
                 $("#myToast").showToast({
@@ -76,6 +77,7 @@
                 $("#myToast").showToast();
             }
         }
+     });
     </script>
 </body>
 </html>
