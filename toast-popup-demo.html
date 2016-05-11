@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
   Toast notification popup jQuery plugin demo
   (c) 2016 Nupin Mathew <nupindev@gmail.com>
@@ -50,6 +50,20 @@
                 padding: 4px 8px;
                 font-weight: normal;
             }
+
+            .container .toast-mode {
+                font-size: 12px;
+                text-align:left;
+                margin-bottom:10px;
+            }
+                .container .toast-mode input[type=radio]{
+                    margin:0;
+
+                } .container .toast-mode span {
+                    display: inline-block;
+                    overflow: hidden;
+                    margin-right:10px;
+                }
     </style>
 </head>
 <body>
@@ -57,6 +71,12 @@
         <h3>Toast popup demo</h3>
         <label>Try your custom messages:</label>
         <textarea id="customMessage" placeholder="type your custom messages"></textarea>
+        <div class="toast-mode">
+            <input type="radio" name="mode" value="" checked/> <span>Normal</span>
+            <input type="radio" name="mode" value="success"/> <span>Success</span>
+            <input type="radio" name="mode" value="warning"/> <span>Warning</span>
+            <input type="radio" name="mode" value="error"/> <span>Error</span>
+        </div>
         <input type="button" value="Show Toast" id="btnShow" />
     </div>
 
@@ -65,19 +85,23 @@
     <script src="bower_component/jquery/jquery-2.2.0.min.js"></script>
     <script src="js/toast-notification-popup.js"></script>
     <script>
-     $(function(){
-       $("#btnShow").click(function(){
-         var customMessage = $("#customMessage").val();
-            if (customMessage != "" && customMessage != undefined) {
-                $("#myToast").showToast({
-                    message: customMessage,
-                    timeout: 2000
-                });
-            } else {
-                $("#myToast").showToast();
-            }
-       });
-     });
+        $(function () {
+            $("#btnShow").click(function () {
+                var customMessage = $("#customMessage").val();
+                var currentMode = $("input[name=mode]:checked").val();
+                if (customMessage != "" && customMessage != undefined) {
+                    $("#myToast").showToast({
+                        message: customMessage,
+                        timeout: 2000,
+                        mode: currentMode
+                    });
+                } else {
+                    $("#myToast").showToast({
+                        mode: currentMode
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
