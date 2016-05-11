@@ -149,9 +149,10 @@
                     $('#myModal').modal('hide');
                     setTimeout(function () {
                         updateTable();
+                        //Showing success message
                         $("#myToast").showToast({
                             message: 'Student added to table successfully!',
-                            timeout: 2500,
+                            duration: 2500,
                             mode: 'success'
                         });
                     }, 500);
