@@ -8,7 +8,8 @@ $(function () {
     $.fn.showToast = function (options) {
         var defaults = {
             message: 'This is a toast notification!',
-            timeout: 1500
+            timeout: 1500,
+            mode: 'info'
         };
         var settings = $.extend({}, defaults, options);
         var self = this;
