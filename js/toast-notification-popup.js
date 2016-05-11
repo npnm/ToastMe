@@ -8,7 +8,7 @@ $(function () {
     $.fn.showToast = function (options) {
         var defaults = {
             message: 'This is a toast notification!',
-            timeout: 1500,
+            duration: 1500,
             mode: 'info'
         };
         var settings = $.extend({}, defaults, options);
@@ -39,6 +39,6 @@ $(function () {
         }
         setTimeout(function () {
             $(self).fadeOut(600);
-        }, settings.timeout);
+        }, settings.duration);
     };
 });
