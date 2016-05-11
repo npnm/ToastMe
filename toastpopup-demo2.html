@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--
+  Toast notification popup jQuery plugin demo
+  (c) 2016 Nupin Mathew <nupindev@gmail.com>
+  License: MIT
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Toast notification popup demo2</title>
+    <link href="bower_component/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/toast-notification-popup.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="mycontainer">
+            <h3>Student Details</h3>
+            <table id="studDetails" class="table table-condensed stud-details">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="control-panel">
+                <input type="button" class="btn btn-primary" value="Add student" data-toggle="modal" data-target="#myModal" />
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add Student</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form name="studForm">
+                            <div class="form-group">
+                                <label for="txtId">Student ID:</label>
+                                <input type="number" class="form-control" id="txtId" placeholder="Student ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtName">Name:</label>
+                                <input type="text" class="form-control" id="txtName" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtAge">Age:</label>
+                                <input type="number" class="form-control" id="txtAge" placeholder="Age">
+                            </div>
+                            <div class="form-group error-message">
+                                <span class="help-block">Please provide all fields</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="btnAdd" type="button" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Toast popup html tag-->
+        <div id="myToast" class="toast-popup"></div>
+    </div>
+
+    <script src="bower_component/jquery/jquery-2.2.0.min.js"></script>
+    <script src="bower_component/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/toast-notification-popup.js"></script>
+    <script>
+        $(function () {
+            //Student Model: Initial valies
+            var studentDetails = [
+                {
+                    id: 1001,
+                    name: 'Akash',
+                    age: 15
+                },
+                {
+                    id: 1002,
+                    name: 'Ravi',
+                    age: 15
+                },
+                {
+                    id: 1003,
+                    name: 'Mathew',
+                    age: 14
+                }
+            ];
+
+            var updateTable = function () {
+                $('#studDetails tbody tr').remove();
+                studentDetails.forEach(function (stud) {
+                    var tr = $("<tr>");
+                    tr.append($("<td>").text(stud.id));
+                    tr.append($("<td>").text(stud.name));
+                    tr.append($("<td>").text(stud.age));
+                    $("#studDetails").append(tr);
+                });
+            };
+            var validateForm = function () {
+                var errorFlag = false;
+                for (var i = 0; i < studForm.elements.length; i++) {
+                    var element = studForm.elements[i];
+                    if (element.type == "text" || element.type == "number") {
+                        if (element.value == "") {
+                            $(element).parent().addClass('has-error');
+                            errorFlag = true;
+                        } else {
+                            $(element).parent().removeClass('has-error');
+                        }
+                    }
+                }
+                if (errorFlag) {
+                    $('.error-message').addClass('has-error');
+                    return false;
+                } else {
+                    $('.error-message').removeClass('has-error');
+                    return true;
+                }
+            };
+            //Adding new student
+            $('#btnAdd').click(function () {
+                if (validateForm()) {
+                    var studID = $('#txtId').val();
+                    var studName = $('#txtName').val();
+                    var studAge = $('#txtAge').val();
+                    studentDetails.push({
+                        id: studID,
+                        name: studName,
+                        age: studAge
+                    });
+                    $('#myModal').modal('hide');
+                    setTimeout(function () {
+                        updateTable();
+                        $("#myToast").showToast({
+                            message: 'Student added successfully!',
+                            timeout: 2500,
+                            mode: 'success'
+                        });
+                    }, 500);
+                } else {
+                    $('#myModal input').on('change', validateForm);
+                }
+            });
+
+            $('#myModal').on('hidden.bs.modal', function () {
+                $('#myModal input').off('change', validateForm);
+                $('#myModal input').val("");
+                $('#myModal .form-group').removeClass('has-error');
+            })
+
+            updateTable();
+        });
+    </script>
+</body>
+</html>
