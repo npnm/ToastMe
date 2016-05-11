@@ -62,7 +62,14 @@
                 } .container .toast-mode span {
                     display: inline-block;
                     overflow: hidden;
-                    margin-right:10px;
+                    margin-right:8px;
+                }
+                 .container .toast-mode div {
+                    display: inline-block;
+                    overflow: hidden;
+                    margin-right: 5px;
+                    color: #777;
+                    font-weight: bold;
                 }
     </style>
 </head>
@@ -72,6 +79,7 @@
         <label>Try your custom messages:</label>
         <textarea id="customMessage" placeholder="type your custom messages"></textarea>
         <div class="toast-mode">
+            <div>Modes:</div>
             <input type="radio" name="mode" value="info" checked/> <span>Info</span>
             <input type="radio" name="mode" value="success"/> <span>Success</span>
             <input type="radio" name="mode" value="warning"/> <span>Warning</span>
@@ -86,6 +94,7 @@
     <script src="js/toast-notification-popup.js"></script>
     <script>
         $(function () {
+            $("#customMessage").val("This is a toast notification!");
             $("#btnShow").click(function () {
                 var customMessage = $("#customMessage").val();
                 var currentMode = $("input[name=mode]:checked").val();
@@ -99,6 +108,18 @@
                     $("#myToast").showToast({
                         mode: currentMode
                     });
+                }
+            });
+            $("input[name=mode]").change(function () {
+                var currentMode = $("input[name=mode]:checked").val();
+                if (currentMode == "success") {
+                    $("#customMessage").val("Product added to cart successfully");
+                } else if (currentMode == "warning") {
+                    $("#customMessage").val("Hey! some fields need an update.");
+                } else if (currentMode == "error") {
+                    $("#customMessage").val("Oops! Something went wrong.");
+                } else {
+                    $("#customMessage").val("This is a toast notification!");
                 }
             });
         });
