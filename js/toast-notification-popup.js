@@ -28,6 +28,14 @@ $(function () {
         var leftInPercentage = left * 100 / windowWidth;
         $(self).css("left", leftInPercentage + "%");
         $(self).fadeIn(400);
+        $(self).removeClass("success warning error");
+        if (settings.mode == "success") {
+            $(self).addClass('success');
+        } else if (settings.mode == "warning") {
+            $(self).addClass('warning');
+        } else if (settings.mode == "error") {
+            $(self).addClass('error');
+        }
         setTimeout(function () {
             $(self).fadeOut(600);
         }, settings.timeout);
