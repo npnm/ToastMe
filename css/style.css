@@ -1,0 +1,65 @@
+﻿body {
+    color: #666;
+}
+
+.mycontainer {
+    width: 300px;
+    margin: 25px auto;
+    padding: 10px 20px;
+    background-color: #d8eaf2;
+    border-radius: 4px;
+    text-align: center;
+}
+
+    .mycontainer h3 {
+        margin: 5px 0 25px 0;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .mycontainer label {
+        font-size: 10px;
+        text-align: left;
+        display: block;
+        color: #777;
+    }
+
+    .mycontainer textarea {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .mycontainer input[type=button] {
+        background-color: #529A52;
+        border: 1px solid transparent;
+        padding: 4px 12px;
+        font-weight: normal;
+    }
+
+    .mycontainer table.stud-details {
+        width: 100%;
+    }
+
+        .mycontainer table.stud-details thead tr th {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #858586;
+        }
+
+        .mycontainer table.stud-details tbody tr td {
+            border-top: 1px solid #858586;
+        }
+        .mycontainer .control-panel{
+            text-align:center;
+        }
+        .form-group.error-message{
+            margin-bottom:0;
+            opacity:0;
+        }
+        .form-group.error-message .help-block{
+            margin-bottom:0;
+        }
+        .form-group.error-message.has-error{
+            opacity:1;
+        }
