@@ -8,5 +8,5 @@ Try a Demo:
 ##How to use
 
 1. Add jquery and toastme.js into the html page
-   <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="toast-popup/js/toast-notification-popup.js"></script>
+   | <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+   | <script src="toast-popup/js/toast-notification-popup.js"></script>
