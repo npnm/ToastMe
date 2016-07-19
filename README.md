@@ -45,7 +45,7 @@ Try a Demo:
       $('<selector for toast-popup div tag>').showToast([options]);
       ````
       
-   	**options**  
+   	* **options**  
    	Type: PlainObject  
    	A set of key/value that configure the toast popup. All are optional.  
    	  
@@ -53,15 +53,13 @@ Try a Demo:
 		Type: String  
 		The message to be shown to user using toast popup. If it is emply the default message will shown  
 
-	**duration** (default: 1500ms)  
-	Type: Number  
-	The number of milliseconds determining how long the popup has to be displayed on screen  
+		* **duration** (default: 1500ms)  
+		Type: Number  
+		The number of milliseconds determining how long the popup has to be displayed on screen  
 
-	**mode** (default: 'info')  
-	Type: String  
-	A pre-defined value determining the color of popup. You can show any kind of messages to user using these different modes of toast popup.  
-	Possible values are 'info', 'success', 'warning', 'error'  
+		* **mode** (default: 'info')  
+		Type: String  
+		A pre-defined value determining the color of popup. You can show any kind of messages to user using these different modes of toast popup.  
+		Possible values are: __*'info'*__, __*'success'*__, __*'warning'*__, __*'error'*__  
 
-
-  
-
+	Refer the demo code for further reference.
