@@ -60,6 +60,7 @@ Try a Demo:
 		* **mode** (default: 'info')  
 		Type: String  
 		A pre-defined value determining the color of popup. You can show any kind of messages to user using these different modes of toast popup.  
-		Possible values are: __*'info'*__, __*'success'*__, __*'warning'*__, __*'error'*__  
+		Possible values are: __*'info'*__, __*'success'*__, __*'warning'*__, __*'error'*__   
+
 
 	Refer the demo code for further reference.
