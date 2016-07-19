@@ -5,7 +5,7 @@ Try a Demo:
 [Demo1](https://rawgit.com/npnm/ToastMe/master/examples/toast-popup-demo.html)
 [Demo2](https://rawgit.com/npnm/ToastMe/master/examples/toast-popup-demo2.html)
 
-##How to use
+## How to use
 
 1. Add toastme stylesheet
    
@@ -40,22 +40,28 @@ Try a Demo:
          mode: 'success'
       });
       ```
-   ###Syntax
-    
+   ### Syntax
+      ```javascript
+      $('<selector for toast-popup div tag>').showToast([options]);
+      ````
       
-      ###options
-      Type: PlainObject
-      A set of key/value that configure the toast popup. All are optional.
-         ####message (default: 'This is toast notification!')
-	      Type: String
-         The message to be shown to user using toast popup. If it is emply the default message will shown
+   	**options**
+   	Type: PlainObject
+	A set of key/value that configure the toast popup. All are optional.
+		
+		**message** (default: 'This is toast notification!')
+		Type: String
+		The message to be shown to user using toast popup. If it is emply the default message will shown
 
-         ####duration (default: 1500ms)
-         Type: Number
-         The number of milliseconds determining how long the popup has to be displayed on screen
+		**duration** (default: 1500ms)
+		Type: Number
+		The number of milliseconds determining how long the popup has to be displayed on screen
 
-         ####mode (default: 'info')
-         Type: String
-         A pre-defined value determining the color of popup. You can show any kind of messages to user using these different modes of toast popup.
-         Possible values are 'info', 'success', 'warning', 'error'
+		**mode** (default: 'info')
+		Type: String
+		A pre-defined value determining the color of popup. You can show any kind of messages to user using these different modes of toast popup.
+		Possible values are 'info', 'success', 'warning', 'error'
+
+
+  
 
