@@ -30,7 +30,7 @@ Try a Demo:
 
    You can use this toastme to show any kind of status message to user and it will be more useful when you are dealing with an ajax request in your page.
 
-   After you setup the plugin, you can call showToast() method anytime whenever you want to show a notification to user. 
+   After you setup the plugin, you can call showToast() method whenever you want to show a notification to user. 
    
    Eg:
 ```javascript
