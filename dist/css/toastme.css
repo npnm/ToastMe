@@ -18,6 +18,10 @@
     z-index: 500000;
 }
 
+.toast-popup:hover {
+    cursor: pointer;
+}
+
 .toast-popup.success{
     background-color: rgba(46, 103, 46, 0.8);
     box-shadow: 2px 2px 10px rgba(46, 103, 46, 0.8);
