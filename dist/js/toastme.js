@@ -37,8 +37,11 @@ $(function () {
         } else if (settings.mode == "error") {
             $(self).addClass('error');
         }
-        setTimeout(function () {
-            $(self).fadeOut(600);
-        }, settings.duration);
+        if (settings.duration > 0) {
+            setTimeout(function () {
+                $(self).fadeOut(600);
+            }, settings.duration);
+        }
+        $(self).on('click', function () { $(self).fadeOut(600); });
     };
 });
